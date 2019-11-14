@@ -140,6 +140,7 @@ public class _Alert {
         }
         
         let window = UIApplication.shared.keyWindow
+        cover.frame = UIScreen.main.bounds
         window?.addSubview(cover)
         window?.addSubview(container)
     }
