@@ -56,6 +56,14 @@ extension _Alert {
         
         private let kScreenWidth: CGFloat = UIScreen.main.bounds.width
         private let kScreenHeight: CGFloat = UIScreen.main.bounds.height
+        
+        private var totalWidth: CGFloat = {
+            if UIDevice.current.userInterfaceIdiom == .pad {
+                return 414 // Xs Max screen width
+            } else {
+                return UIScreen.main.bounds.width
+            }
+        }()
 
         private var totoalHeight: CGFloat = 0.0
         
@@ -64,9 +72,13 @@ extension _Alert {
             didSet {
                 switch state {
                 case .show:
-                    self.frame = CGRect(x: 0.0, y: kScreenHeight - totoalHeight, width: kScreenWidth, height: totoalHeight)
+                    var frame = self.frame
+                    frame.origin = CGPoint(x: (UIScreen.main.bounds.width - totalWidth) / 2, y: UIScreen.main.bounds.height - totoalHeight)
+                    self.frame = frame
                 case .dismiss:
-                    self.frame = CGRect(x: 0.0, y: kScreenHeight, width: kScreenWidth, height: totoalHeight)
+                    var frame = self.frame
+                    frame.origin = CGPoint(x: (UIScreen.main.bounds.width - totalWidth) / 2, y: UIScreen.main.bounds.height)
+                    self.frame = frame
                 }
             }
         }
@@ -75,8 +87,9 @@ extension _Alert {
             
             let _content = content.view()
             totoalHeight = content.frame().height
-            _content.frame = CGRect(x: content.frame().origin.x, y: 0.0, width: _content.bounds.width, height: totoalHeight)
-            
+            self.bounds = CGRect(x: 0, y: 0, width: totalWidth, height: totoalHeight)
+            let paddingH = content.frame().origin.x
+            _content.frame = CGRect(x: content.frame().origin.x, y: 0.0, width: self.bounds.width - paddingH * 2, height: totoalHeight)
             addSubview(_content)
             
             if let cancel = cancel {

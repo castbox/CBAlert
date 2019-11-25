@@ -86,8 +86,16 @@ public class _Alert {
     
     private var items: [_Alert.Item] = [_Alert.Item]()
     
-    private let container: Container = Container()
-    private let cover: Cover = Cover()
+    private let container: Container = {
+        let container = Container()
+        container.autoresizingMask = [.flexibleLeftMargin, .flexibleTopMargin, .flexibleRightMargin]
+        return container
+    }()
+    private let cover: Cover = {
+        let cover = Cover()
+        cover.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        return cover
+    }()
     
     private var content: Content?
     private var cancel: Cancel?
@@ -132,6 +140,7 @@ public class _Alert {
         }
         
         let window = UIApplication.shared.keyWindow
+        cover.frame = UIScreen.main.bounds
         window?.addSubview(cover)
         window?.addSubview(container)
     }
