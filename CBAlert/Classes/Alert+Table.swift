@@ -66,7 +66,7 @@ public class _Table: NSObject, Content, UITableViewDataSource, UITableViewDelega
     public func set(with items: [_Alert.Item]) {
         self.items = items
         
-        tableView.frame = CGRect(x: 8.0, y: 0.0, width: UIScreen.main.bounds.width - 16.0, height: CGFloat(items.count)*_Table.itemHeight)
+        tableView.frame = CGRect(x: 8.0, y: 0.0, width: _Alert.windowSize.width - 16.0, height: CGFloat(items.count)*_Table.itemHeight)
         tableView.reloadData()
         
         tableView.layer.mask = corner()
@@ -105,8 +105,8 @@ class ListCell: UITableViewCell {
         contentView.addSubview(titleLabel)
         contentView.addSubview(separator)
         
-        titleLabel.frame = CGRect(x: 0.0, y: 0.0, width: UIScreen.main.bounds.width, height: _Table.itemHeight - 0.5)
-        separator.frame = CGRect(x: 0.0, y: _Table.itemHeight - 0.5, width: UIScreen.main.bounds.width, height: 0.5)
+        titleLabel.frame = CGRect(x: 0.0, y: 0.0, width: _Alert.windowSize.width, height: _Table.itemHeight - 0.5)
+        separator.frame = CGRect(x: 0.0, y: _Table.itemHeight - 0.5, width: _Alert.windowSize.width, height: 0.5)
     }
     
     required init?(coder aDecoder: NSCoder) {

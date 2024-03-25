@@ -31,7 +31,7 @@ extension _Alert {
         }
         
         override init(frame: CGRect) {
-            super.init(frame: UIScreen.main.bounds)
+            super.init(frame: frame)
             
             backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
             
@@ -54,14 +54,11 @@ extension _Alert {
     
     class Container: UIView {
         
-        private let kScreenWidth: CGFloat = UIScreen.main.bounds.width
-        private let kScreenHeight: CGFloat = UIScreen.main.bounds.height
-        
         private var totalWidth: CGFloat = {
             if UIDevice.current.userInterfaceIdiom == .pad {
                 return 414 // Xs Max screen width
             } else {
-                return UIScreen.main.bounds.width
+                return _Alert.windowSize.width
             }
         }()
 
@@ -73,11 +70,17 @@ extension _Alert {
                 switch state {
                 case .show:
                     var frame = self.frame
-                    frame.origin = CGPoint(x: (UIScreen.main.bounds.width - totalWidth) / 2, y: UIScreen.main.bounds.height - totoalHeight)
+                    frame.origin = CGPoint(
+                        x: (_Alert.windowSize.width - totalWidth) / 2,
+                        y: _Alert.windowSize.height - totoalHeight
+                    )
                     self.frame = frame
                 case .dismiss:
                     var frame = self.frame
-                    frame.origin = CGPoint(x: (UIScreen.main.bounds.width - totalWidth) / 2, y: UIScreen.main.bounds.height)
+                    frame.origin = CGPoint(
+                        x: (_Alert.windowSize.width - totalWidth) / 2,
+                        y: _Alert.windowSize.height
+                    )
                     self.frame = frame
                 }
             }

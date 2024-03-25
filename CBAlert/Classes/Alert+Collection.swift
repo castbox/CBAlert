@@ -73,10 +73,12 @@ public class _Collection: NSObject, Content, UICollectionViewDataSource, UIColle
             count -= 3
         } while (count > 0)
         
-        collectionView.frame = CGRect(x: 0.0,
-                                      y: 0.0,
-                                      width: UIScreen.main.bounds.width,
-                                      height: flowLayout.edge.top + CGFloat(row) * (flowLayout.height + 20.0) + flowLayout.edge.bottom)
+        collectionView.frame = CGRect(
+            x: 0.0,
+            y: 0.0,
+            width: _Alert.windowSize.width,
+            height: flowLayout.edge.top + CGFloat(row) * (flowLayout.height + 20.0) + flowLayout.edge.bottom
+        )
         collectionView.reloadData()
         
         collectionView.layer.mask = corner()
@@ -125,7 +127,7 @@ class FlowLayoutCell: UICollectionViewCell {
 class FlowLayout: UICollectionViewLayout {
     
     var offset: CGFloat  {
-        return (UIScreen.main.bounds.width - 60.0 * CGFloat(maxHorizontal)) / CGFloat(maxHorizontal + 1)
+        return (_Alert.windowSize.width - 60.0 * CGFloat(maxHorizontal)) / CGFloat(maxHorizontal + 1)
     }
     var edge: UIEdgeInsets {
         return UIEdgeInsets(top: 30.0, left: offset, bottom: 20.0, right: offset)

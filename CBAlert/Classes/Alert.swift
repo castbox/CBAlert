@@ -43,6 +43,21 @@ internal extension Content {
 
 public class _Alert {
     
+    static var window: UIWindow? {
+        return _mainWindow ?? UIApplication.shared.keyWindow
+    }
+    
+    private static var _mainWindow: UIWindow?
+    
+    static var windowSize: CGSize {
+        return window?.bounds.size ?? UIScreen.main.bounds.size
+    }
+    
+    /// 设置主窗口 (建议今早设置)
+    public static func set(main window: UIWindow) {
+        _mainWindow = window
+    }
+    
     // MARK: - Public
     @discardableResult
     public func set(with items: [_Alert.Item]) -> Self {
@@ -133,16 +148,17 @@ public class _Alert {
     
     // MARK: - Custom Method
     private func prepare() {
-
+        
         if let content = self.content {
             content.set(with: items)
             container.set(content: content, cancel: self.cancel)
         }
         
-        let window = UIApplication.shared.keyWindow
-        cover.frame = UIScreen.main.bounds
-        window?.addSubview(cover)
-        window?.addSubview(container)
+        if let window = _Alert.window {
+            cover.frame = window.bounds
+            window.addSubview(cover)
+            window.addSubview(container)
+        }
     }
     
     private func complete() {
