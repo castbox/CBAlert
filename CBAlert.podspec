@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'CBAlert'
-  s.version          = '0.2.6'
+  s.version          = '0.3.0'
   s.summary          = 'A quick alert'
 
 # This description is used to generate tags and improve search results.
@@ -32,11 +32,9 @@ TODO: Add long description of the pod here.
 
   s.source_files = 'CBAlert/Classes/**/*'
   
-  # s.resource_bundles = {
-  #   'CBAlert' => ['CBAlert/Assets/*.png']
-  # }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.subspec 'Privacy' do |ss|
+      ss.resource_bundles = {
+        "Privacy" => 'CBAlert/Resources/PrivacyInfo.xcprivacy'
+      }
+  end
 end
