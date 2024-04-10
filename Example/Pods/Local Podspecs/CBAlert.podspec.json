@@ -1,6 +1,6 @@
 {
   "name": "CBAlert",
-  "version": "0.2.6",
+  "version": "0.3.0",
   "summary": "A quick alert",
   "description": "TODO: Add long description of the pod here.",
   "homepage": "https://github.com/vyqrvwgf/CBAlert",
@@ -13,10 +13,18 @@
   },
   "source": {
     "git": "https://github.com/vyqrvwgf/CBAlert.git",
-    "tag": "0.2.6"
+    "tag": "0.3.0"
   },
   "platforms": {
     "ios": "13.0"
   },
-  "source_files": "CBAlert/Classes/**/*"
+  "source_files": "CBAlert/Classes/**/*",
+  "subspecs": [
+    {
+      "name": "Privacy",
+      "resource_bundles": {
+        "Privacy": "CBAlert/Resources/PrivacyInfo.xcprivacy"
+      }
+    }
+  ]
 }

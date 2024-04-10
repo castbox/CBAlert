@@ -1,47 +1,18 @@
 PODS:
-  - CBAlert (0.2.6)
-  - CwlCatchException (2.2.0):
-    - CwlCatchExceptionSupport (~> 2.2.0)
-  - CwlCatchExceptionSupport (2.2.0)
-  - CwlMachBadInstructionHandler (2.2.0)
-  - CwlPosixPreconditionTesting (2.2.0)
-  - CwlPreconditionTesting (2.2.1):
-    - CwlCatchException (~> 2.2.0)
-    - CwlMachBadInstructionHandler (~> 2.2.0)
-    - CwlPosixPreconditionTesting (~> 2.2.0)
-  - Nimble (13.2.1):
-    - CwlPreconditionTesting (~> 2.2.0)
-  - Quick (7.5.0)
+  - CBAlert (0.3.0):
+    - CBAlert/Privacy (= 0.3.0)
+  - CBAlert/Privacy (0.3.0)
 
 DEPENDENCIES:
   - CBAlert (from `../`)
-  - Nimble
-  - Quick
-
-SPEC REPOS:
-  trunk:
-    - CwlCatchException
-    - CwlCatchExceptionSupport
-    - CwlMachBadInstructionHandler
-    - CwlPosixPreconditionTesting
-    - CwlPreconditionTesting
-    - Nimble
-    - Quick
 
 EXTERNAL SOURCES:
   CBAlert:
     :path: "../"
 
 SPEC CHECKSUMS:
-  CBAlert: 733114dd733c344cbbdb721c8d865b1625484163
-  CwlCatchException: 51bf8319009a31104ea6f0568730d1ecc25b6454
-  CwlCatchExceptionSupport: 1345d6adb01a505933f2bc972dab60dcb9ce3e50
-  CwlMachBadInstructionHandler: ea1030428925d9bf340882522af30712fb4bf356
-  CwlPosixPreconditionTesting: a125dee731883f2582715f548c6b6c92c7fde145
-  CwlPreconditionTesting: ccfd08aca58d14e04062b2a3dd2fd52e09857453
-  Nimble: 9e81a67096dab1d1f5160d7a3f8fa7a1eeec38fd
-  Quick: 2b651168441479b949ba987f3cee41a9cc53aa32
+  CBAlert: c9c17786222c74320e237f2d6f56d6a56ba444a9
 
-PODFILE CHECKSUM: 85d3847b2fb99da968738bf5b818e1c80fc99180
+PODFILE CHECKSUM: e51f190d730c437b821d61c3c125889d9aa6dc54
 
 COCOAPODS: 1.15.2

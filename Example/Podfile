@@ -1,13 +1,6 @@
 use_frameworks!
+platform :ios, '13.0'
 
 target 'CBAlert_Example' do
   pod 'CBAlert', :path => '../'
-
-  target 'CBAlert_Tests' do
-    inherit! :search_paths
-
-    pod 'Quick'
-    pod 'Nimble'
-
-  end
 end
