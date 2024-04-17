@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'CBAlert'
-  s.version          = '0.3.0'
+  s.version          = '0.3.1'
   s.summary          = 'A quick alert'
 
 # This description is used to generate tags and improve search results.
@@ -34,7 +34,7 @@ TODO: Add long description of the pod here.
   
   s.subspec 'Privacy' do |ss|
       ss.resource_bundles = {
-        "Privacy" => 'CBAlert/Resources/PrivacyInfo.xcprivacy'
+        s.name => 'CBAlert/Resources/PrivacyInfo.xcprivacy'
       }
   end
 end
